@@ -77,7 +77,7 @@
          */
         searchForFocusable: function(oElement)
         {
-            while(oElement !== document && oElement.className.indexOf('focusable') === -1)
+            while(oElement !== document && ([' ', oElement.className, ' '].join('')).indexOf(' focusable ') === -1)
             {
                 oElement = oElement.parentNode;
             }
