@@ -44,7 +44,7 @@
 
         /**
          * Event handler to add new events to DOM elements
-         * @memmber Focus.prototype
+         * @member Focus.prototype
          */
         addEvent: function(oElement, sType, fpCallback)
         {
@@ -77,7 +77,7 @@
          */
         searchForFocusable: function(oElement)
         {
-            while(oElement !== document && oElement.className.indexOf('focusable') === -1)
+            while(oElement !== document && ([' ', oElement.className, ' '].join('')).indexOf(' focusable ') === -1)
             {
                 oElement = oElement.parentNode;
             }
@@ -121,10 +121,7 @@
             {
                 var oPrevActive = self.oActive;
                 var oActive = self.searchForFocusable(eEvent.target);
-                if(oActive === null)
-                {
-                    return;
-                }
+
                 self.oActive = oActive;
                 self.onFocus(oPrevActive, self.oActive);
                 oPrevActive = null;
